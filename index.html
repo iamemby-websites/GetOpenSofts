@@ -1,0 +1,262 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Download free powerful software and VEGAS Pro scripts by iEmby. Tools like FLEXEncoder, MiniTools, and Quick Render to enhance your workflow." name="description">
+    <title>GetOpenSofts - By Mohit Bhagat</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Feather Icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            900: '#1e3a8a',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased min-h-screen flex flex-col selection:bg-brand-500 selection:text-white" style="background-color: #EEEEEE !important;">
+
+    <!-- Header -->
+    <header class="pt-16 pb-8 px-6 text-center">
+        <div class="max-w-4xl mx-auto">
+            <div class="inline-flex items-center justify-center p-3 bg-brand-50 rounded-2xl mb-6 text-brand-600">
+                <i data-feather="box" class="w-8 h-8"></i>
+            </div>
+            <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 mb-4">GetOpenSofts</h1>
+            <p class="text-lg md:text-xl text-slate-500 font-medium">Free Tools & Scripts to Enhance Your Workflow</p>
+            <p class="text-sm text-slate-400 mt-2">Created By <span class="font-semibold text-slate-600">Mohit Bhagat</span></p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow flex flex-col w-full relative pb-8">
+        
+        <!-- Tabs -->
+        <div class="flex flex-wrap justify-center gap-2 px-6 mb-12">
+            <button id="tab-software" onclick="switchTab('software')" class="px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 bg-slate-900 text-white shadow-lg shadow-slate-900/20">Free Open Software</button>
+            <button id="tab-scripts" onclick="switchTab('scripts')" class="px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 bg-white text-slate-600 hover:bg-slate-100 border border-slate-200">VEGAS Pro Scripts</button>
+        <button id="tab-vegas-application-extensions" onclick="switchTab('vegas-application-extensions')" class="px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 bg-white text-slate-600 hover:bg-slate-100 border border-slate-200">VEGAS Application Extensions</button></div>
+
+        <!-- Software Section -->
+        <div id="section-software" class="w-full">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 px-6 md:px-12 pb-12 w-full max-w-7xl mx-auto">
+                
+                <!-- Card 1 -->
+                <div class="bg-white rounded-3xl p-8 border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col group h-full">
+                    <div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <i data-feather="refresh-cw"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">FLEXConvertor</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed mb-8 flex-grow">An all-in-one media tool to convert, resize, compress, and optimize audio, images, and videos effortlessly.</p>
+                    <a href="https://drive.google.com/drive/folders/1ajGqYtaD9e2BvVlJCVZsII5a1tSr1PQ2?usp=sharing" target="_blank" class="flex items-center justify-center gap-2 w-full py-3 bg-slate-50 hover:bg-brand-600 text-slate-700 hover:text-white rounded-xl font-semibold transition-colors mt-auto">
+                        <i data-feather="download" class="w-4 h-4"></i> Download
+                    </a>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-white rounded-3xl p-8 border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col group h-full">
+                    <div class="w-12 h-12 bg-indigo-50 text-indigo-600 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <i data-feather="pie-chart"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Folder Analyser</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed mb-8 flex-grow">A powerful folder analysis tool that gives you detailed insights, including total size, file-type distribution, and total video duration.</p>
+                    <a href="https://drive.google.com/drive/folders/11kAiWdtyp0OVTp8adNvsgi5CWdi6wpbB?usp=sharing" target="_blank" class="flex items-center justify-center gap-2 w-full py-3 bg-slate-50 hover:bg-brand-600 text-slate-700 hover:text-white rounded-xl font-semibold transition-colors mt-auto">
+                        <i data-feather="download" class="w-4 h-4"></i> Download
+                    </a>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-white rounded-3xl p-8 border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col group h-full">
+                    <div class="w-12 h-12 bg-purple-50 text-purple-600 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <i data-feather="folder"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Filexa</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed mb-8 flex-grow">A smart file management tool that lets you flatten folder structures, organize files into categories, and detect duplicates.</p>
+                    <a href="https://drive.google.com/drive/folders/1G49kkKNnpfWqrzv7xuolo1CCm0-wEoni?usp=sharing" target="_blank" class="flex items-center justify-center gap-2 w-full py-3 bg-slate-50 hover:bg-brand-600 text-slate-700 hover:text-white rounded-xl font-semibold transition-colors mt-auto">
+                        <i data-feather="download" class="w-4 h-4"></i> Download
+                    </a>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="bg-white rounded-3xl p-8 border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col group h-full">
+                    <div class="w-12 h-12 bg-emerald-50 text-emerald-600 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <i data-feather="clock"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Timbar</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed mb-8 flex-grow">A versatile tool for creating custom timers and progress bars with full color control. Export as MOV files with transparent backgrounds.</p>
+                    <a href="https://drive.google.com/drive/folders/1rtsk6BBwhzulcSdpEMQ9z802mEZsFwF7?usp=sharing" target="_blank" class="flex items-center justify-center gap-2 w-full py-3 bg-slate-50 hover:bg-brand-600 text-slate-700 hover:text-white rounded-xl font-semibold transition-colors mt-auto">
+                        <i data-feather="download" class="w-4 h-4"></i> Download
+                    </a>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="bg-white rounded-3xl p-8 border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col group h-full">
+                    <div class="w-12 h-12 bg-amber-50 text-amber-600 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <i data-feather="file-text"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">MCQ Generator</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed mb-8 flex-grow">Generate MCQ question papers from structured input data. Customizable options like question count and answer sheet inclusion.</p>
+                    <a href="https://drive.google.com/drive/folders/1dt64PRbKOEric6Hl6mw0UjuxwaCuhmwF?usp=sharing" target="_blank" class="flex items-center justify-center gap-2 w-full py-3 bg-slate-50 hover:bg-brand-600 text-slate-700 hover:text-white rounded-xl font-semibold transition-colors mt-auto">
+                        <i data-feather="download" class="w-4 h-4"></i> Download
+                    </a>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="bg-white rounded-3xl p-8 border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col group h-full">
+                    <div class="w-12 h-12 bg-rose-50 text-rose-600 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <i data-feather="edit-3"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">MyTypingTutor</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed mb-8 flex-grow">A flexible typing tutor. Use your own content, save it, track your speed, accuracy, and performance with detailed results.</p>
+                    <a href="https://drive.google.com/drive/folders/1NEdfFE3tgIdOjilhYR4IN8L34b7kc0ws?usp=sharing" target="_blank" class="flex items-center justify-center gap-2 w-full py-3 bg-slate-50 hover:bg-brand-600 text-slate-700 hover:text-white rounded-xl font-semibold transition-colors mt-auto">
+                        <i data-feather="download" class="w-4 h-4"></i> Download
+                    </a>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Scripts Section (Hidden by default) -->
+        <div id="section-scripts" class="w-full hidden">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 px-6 md:px-12 pb-12 w-full max-w-7xl mx-auto">
+                
+                <!-- Script Card 1 -->
+                <div class="bg-white rounded-3xl p-8 border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col group h-full">
+                    <div class="w-12 h-12 bg-slate-100 text-slate-700 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <i data-feather="settings"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Manage VEGAS Preferences</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed mb-8 flex-grow">A smart utility that lets you back up, store, and restore your VEGAS Pro preferences effortlessly through an import/export system.</p>
+                    <a href="https://drive.google.com/drive/folders/1O6O2bzAgqjVHXtbzgOcx7lG4gKfsA6Dd?usp=sharing" target="_blank" class="flex items-center justify-center gap-2 w-full py-3 bg-slate-50 hover:bg-brand-600 text-slate-700 hover:text-white rounded-xl font-semibold transition-colors mt-auto">
+                        <i data-feather="download" class="w-4 h-4"></i> Download
+                    </a>
+                </div>
+
+                <!-- Script Card 2 -->
+                
+
+                <!-- Script Card 3 -->
+                
+
+                <!-- Script Card 4 -->
+                <div class="bg-white rounded-3xl p-8 border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col group h-full">
+                    <div class="w-12 h-12 bg-slate-100 text-slate-700 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <i data-feather="layers"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">ZParallax Effect</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed mb-8 flex-grow">A powerful tool for creating parallax effects using 3D Source Alpha. Build custom presets with ease.</p>
+                    <a href="https://drive.google.com/drive/folders/1cfnPFJ6eA2TtSAPNJhTon8IHBWGU4zPT?usp=sharing" target="_blank" class="flex items-center justify-center gap-2 w-full py-3 bg-slate-50 hover:bg-brand-600 text-slate-700 hover:text-white rounded-xl font-semibold transition-colors mt-auto">
+                        <i data-feather="download" class="w-4 h-4"></i> Download
+                    </a>
+                </div>
+
+            </div>
+        </div><div id="section-vegas-application-extensions" class="w-full hidden">
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 px-6 md:px-12 pb-12 w-full max-w-7xl mx-auto">
+<div class="bg-white rounded-3xl p-8 border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col group h-full">
+                    <div class="w-12 h-12 bg-slate-100 text-slate-700 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <i data-feather="tool"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">VEGAS Minitools</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed mb-8 flex-grow">A powerful extension loaded with essential tools to supercharge your workflow inside VEGAS Pro.</p>
+                    <a href="https://drive.google.com/drive/folders/1SDfAfTS0WlGu14q24lMtudO1XG2HWM_R?usp=sharing" target="_blank" class="flex items-center justify-center gap-2 w-full py-3 bg-slate-50 hover:bg-brand-600 text-slate-700 hover:text-white rounded-xl font-semibold transition-colors mt-auto">
+                        <i data-feather="download" class="w-4 h-4"></i> Download
+                    </a>
+                </div><div class="bg-white rounded-3xl p-8 border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col group h-full">
+                    <div class="w-12 h-12 bg-slate-100 text-slate-700 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <i data-feather="tool"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">VEGAS Quick Render</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed mb-8 flex-grow">A powerful extension built specifically to handle all rendering and encoding tasks in VEGAS Pro with ease.</p>
+                    <a href="https://drive.google.com/drive/folders/1uc4hGfnLB_Y0m1XCY1LUdcgTzwJ6gRvW?usp=sharing" target="_blank" class="flex items-center justify-center gap-2 w-full py-3 bg-slate-50 hover:bg-brand-600 text-slate-700 hover:text-white rounded-xl font-semibold transition-colors mt-auto">
+                        <i data-feather="download" class="w-4 h-4"></i> Download
+                    </a>
+                </div></div>
+</div>
+    </main>
+
+    <!-- Feedback Section -->
+    <section class="max-w-2xl mx-auto px-6 w-full mb-12">
+        
+        <!-- Software Feedback (Email) -->
+        <div id="feedback-software" class="bg-gradient-to-br from-slate-900 to-slate-800 rounded-3xl p-8 md:p-10 text-center shadow-2xl shadow-slate-900/20">
+            <h3 class="text-2xl font-bold text-white mb-3">Need Help or Have Feedback?</h3>
+            <p class="text-slate-300 mb-8 text-sm md:text-base">Have suggestions for the software? Feel free to reach out to me directly via email.</p>
+            <a href="mailto:iamemby@gmail.com" class="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-brand-500 hover:bg-brand-400 text-white rounded-full font-semibold transition-colors shadow-lg shadow-brand-500/30"><i data-feather="mail" class="w-5 h-5"></i> Email Us (iamemby@gmail.com)</a>
+        </div>
+
+        <!-- Scripts Feedback (Boris FX Forum) - Hidden by Default -->
+        <div id="feedback-scripts" class="hidden bg-gradient-to-br from-slate-900 to-slate-800 rounded-3xl p-8 md:p-10 text-center shadow-2xl shadow-slate-900/20">
+            <h3 class="text-2xl font-bold text-white mb-3">Feedback for VEGAS Scripts?</h3>
+            <p class="text-slate-300 mb-8 text-sm md:text-base">Join the discussion on Boris FX Forum and let me know your thoughts on the scripts!</p>
+            <a href="https://forum.borisfx.com/t/scripts-by-getopensofts-mohit-bhagat-iemby-love-from-india/21318" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-brand-500 hover:bg-brand-400 text-white rounded-full font-semibold transition-colors shadow-lg shadow-brand-500/30">
+                <i data-feather="message-circle" class="w-5 h-5"></i> Boris FX Forum
+            </a>
+        </div>
+        <!-- Extensions Feedback (Boris FX Forum) - Hidden by Default -->
+<div id="feedback-vegas-application-extensions" class="hidden bg-gradient-to-br from-slate-900 to-slate-800 rounded-3xl p-8 md:p-10 text-center shadow-2xl shadow-slate-900/20">
+    <h3 class="text-2xl font-bold text-white mb-3">Feedback for VEGAS Application Extensions?</h3>
+    <p class="text-slate-300 mb-8 text-sm md:text-base">Join the discussion on Boris FX Forum and let me know your thoughts on the extensions!</p>
+    <a href="https://forum.borisfx.com/t/scripts-by-getopensofts-mohit-bhagat-iemby-love-from-india/21318" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-brand-500 hover:bg-brand-400 text-white rounded-full font-semibold transition-colors shadow-lg shadow-brand-500/30">
+        <i data-feather="message-circle" class="w-5 h-5"></i> Boris FX Forum
+    </a>
+</div>
+
+    </section>
+
+    <!-- Footer -->
+    <footer class="mt-auto py-8 text-center border-t border-slate-200">
+        <p class="text-slate-500 text-sm font-medium">&copy; GetOpenSofts | Mohit Bhagat | 2026 | All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // Initialize Feather Icons
+        feather.replace();
+
+        // Dynamic Tab Switching Logic
+        function switchTab(tab) {
+            document.querySelectorAll('button[id^="tab-"]').forEach(btn => {
+                if (btn.id === 'tab-' + tab) {
+                    btn.className = "px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 bg-slate-900 text-white shadow-lg shadow-slate-900/20";
+                } else {
+                    btn.className = "px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 bg-white text-slate-600 hover:bg-slate-100 border border-slate-200";
+                }
+            });
+
+            document.querySelectorAll('div[id^="section-"]').forEach(sec => {
+                if (sec.id === 'section-' + tab) sec.classList.remove('hidden');
+                else sec.classList.add('hidden');
+            });
+
+            document.querySelectorAll('div[id^="feedback-"]').forEach(fb => {
+                if (fb.id === 'feedback-' + tab) fb.classList.remove('hidden');
+                else fb.classList.add('hidden');
+            });
+        }
+</script>
+</body>
+</html>
