@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
@@ -22,91 +22,121 @@
     
     <!-- Feather Icons -->
     <script src="https://unpkg.com/feather-icons"></script>
+
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        .card-glow {
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+    </style>
 </head>
-<body class="bg-slate-50 text-slate-800 font-sans antialiased min-h-screen flex flex-col selection:bg-blue-500 selection:text-white" style="background-color: #6E6E6E !important;">
+<body class="bg-[#09090b] text-zinc-100 font-sans antialiased min-h-screen flex flex-col selection:bg-blue-600 selection:text-white relative overflow-x-hidden" style="background-color: #f8fafc !important;">
+
+    <!-- Ambient Background Glow Sources -->
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[400px] bg-gradient-to-b from-blue-600/15 via-indigo-600/10 to-transparent blur-[140px] pointer-events-none rounded-full"></div>
+    <div class="absolute top-[600px] right-0 w-[500px] h-[500px] bg-purple-600/5 blur-[150px] pointer-events-none rounded-full"></div>
+    <div class="absolute top-[1200px] left-0 w-[500px] h-[500px] bg-blue-600/5 blur-[150px] pointer-events-none rounded-full"></div>
 
     <!-- Header -->
-    <header class="pt-12 pb-8 px-6 text-center bg-slate-900 text-white shadow-md">
+    <header class="pt-12 pb-8 px-6 text-center bg-[#0d0e12]/80 backdrop-blur-xl border-b border-zinc-800/80 shadow-2xl relative z-10">
         <div class="max-w-4xl mx-auto flex flex-col items-center">
-            <img src="GetOpenSofts%20512x.png" alt="Logo" class="w-20 h-20 rounded-2xl shadow-lg mb-4">
-            <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-2">GetOpenSofts</h1>
-            <p class="text-lg md:text-xl text-slate-300 font-medium">Free Tools &amp; Scripts to Enhance Your Workflow</p>
-            <p class="text-sm text-slate-400 mt-2">Created By <span class="font-semibold text-slate-200">Mohit Bhagat</span></p>
+            <img src="GetOpenSofts%20512x.png" alt="Logo" class="w-20 h-20 rounded-2xl shadow-[0_0_25px_rgba(59,130,246,0.3)] border border-zinc-700/50 mb-4 hover:scale-105 transition-transform duration-300">
+            <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-2 bg-clip-text text-transparent bg-gradient-to-r from-white via-zinc-200 to-zinc-400">GetOpenSofts</h1>
+            <p class="text-lg md:text-xl text-zinc-400 font-medium">Free Tools &amp; Scripts to Enhance Your Workflow</p>
+            <p class="text-sm text-zinc-500 mt-2">Created By <span class="font-semibold text-zinc-300">Mohit Bhagat</span></p>
         </div>
     </header>
 
     <!-- Main Content -->
-    <main class="flex-grow flex flex-col w-full relative pt-8 pb-8">
+    <main class="flex-grow flex flex-col w-full relative pt-8 pb-8 z-10">
         
         <!-- Tabs -->
-        <div class="flex flex-wrap justify-center gap-2 px-6 mb-10">
-            <button id="tab-software" onclick="switchTab('software')" class="px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 bg-slate-900 text-white shadow-lg shadow-slate-900/20">Free Open Software</button>
-            <button id="tab-scripts" onclick="switchTab('scripts')" class="px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 bg-white text-slate-600 hover:bg-slate-100 border border-slate-200">VEGAS Pro Scripts</button>
-            <button id="tab-vegas-application-extensions" onclick="switchTab('vegas-application-extensions')" class="px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 bg-white text-slate-600 hover:bg-slate-100 border border-slate-200">VEGAS Application Extensions</button>
-            <button id="tab-free-android-apps" onclick="switchTab('free-android-apps')" class="px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 bg-white text-slate-600 hover:bg-slate-100 border border-slate-200">Free Android Apps</button>
+        <div class="flex flex-wrap justify-center gap-2.5 px-6 mb-10">
+            <button id="tab-software" onclick="switchTab('software')" class="px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-[0_0_20px_rgba(59,130,246,0.4)] border border-blue-400/30">Free Open Software</button>
+            <button id="tab-scripts" onclick="switchTab('scripts')" class="px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 bg-zinc-900/80 text-zinc-400 hover:text-white hover:bg-zinc-800/90 border border-zinc-800/80 hover:border-zinc-700">VEGAS Pro Scripts</button>
+            <button id="tab-vegas-application-extensions" onclick="switchTab('vegas-application-extensions')" class="px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 bg-zinc-900/80 text-zinc-400 hover:text-white hover:bg-zinc-800/90 border border-zinc-800/80 hover:border-zinc-700">VEGAS Application Extensions</button>
+            <button id="tab-free-android-apps" onclick="switchTab('free-android-apps')" class="px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 bg-zinc-900/80 text-zinc-400 hover:text-white hover:bg-zinc-800/90 border border-zinc-800/80 hover:border-zinc-700">Free Android Apps</button>
         </div>
 
         <!-- Software Section -->
         <div id="section-software" class="w-full">
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 px-6 md:px-12 pb-12 w-full max-w-7xl mx-auto">
-                <div class="bg-white rounded-3xl p-8 border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col group h-full">
-                    <div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                <!-- FLEXEncoder Card -->
+                <div class="bg-[#121215] rounded-3xl p-8 border border-zinc-800/80 shadow-[0_4px_20px_rgba(0,0,0,0.5)] card-glow hover:-translate-y-1.5 hover:shadow-[0_0_35px_rgba(59,130,246,0.25)] hover:border-blue-500/40 flex flex-col group h-full relative overflow-hidden backdrop-blur-sm">
+                    <div class="absolute -top-20 -right-20 w-44 h-44 bg-blue-500/10 rounded-full blur-2xl group-hover:bg-blue-500/20 transition-all duration-500 pointer-events-none"></div>
+                    <div class="w-12 h-12 bg-blue-950/60 text-blue-400 border border-blue-800/40 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-blue-600 group-hover:text-white group-hover:shadow-[0_0_15px_rgba(59,130,246,0.5)] transition-all duration-300">
                         <i data-feather="refresh-cw"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-slate-900 mb-3">FLEXEncoder</h3>
-                    <p class="text-slate-500 text-sm leading-relaxed mb-8 flex-grow">An all-in-one media tool to convert, resize, compress, and optimize audio, images, and videos effortlessly.</p>
-                    <a href="https://pub-eb6a98518234454f807d902ff0e36ff6.r2.dev/Free%20Tools%20For%20Windows%20PC/FLEXEncoder/FLEXEncoder_Setup.exe" target="_blank" class="flex items-center justify-center gap-2 w-full py-3 bg-slate-50 hover:bg-blue-600 text-slate-700 hover:text-white rounded-xl font-semibold transition-colors mt-auto">
+                    <h3 class="text-xl font-bold text-white mb-3">FLEXEncoder</h3>
+                    <p class="text-zinc-400 text-sm leading-relaxed mb-8 flex-grow">An all-in-one media tool to convert, resize, compress, and optimize audio, images, and videos effortlessly.</p>
+                    <a href="https://pub-eb6a98518234454f807d902ff0e36ff6.r2.dev/Free%20Tools%20For%20Windows%20PC/FLEXEncoder/FLEXEncoder_Setup.exe" target="_blank" class="flex items-center justify-center gap-2 w-full py-3 bg-zinc-900/90 hover:bg-blue-600 text-zinc-300 hover:text-white border border-zinc-800 hover:border-blue-500/50 rounded-xl font-semibold transition-all duration-300 shadow-md hover:shadow-[0_0_20px_rgba(59,130,246,0.4)] mt-auto relative z-10">
                         <i data-feather="download" class="w-4 h-4"></i> Download
                     </a>
                 </div>
-                <div class="bg-white rounded-3xl p-8 border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col group h-full">
-                    <div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+
+                <!-- YouTube Downloader Card -->
+                <div class="bg-[#121215] rounded-3xl p-8 border border-zinc-800/80 shadow-[0_4px_20px_rgba(0,0,0,0.5)] card-glow hover:-translate-y-1.5 hover:shadow-[0_0_35px_rgba(239,68,68,0.25)] hover:border-red-500/40 flex flex-col group h-full relative overflow-hidden backdrop-blur-sm">
+                    <div class="absolute -top-20 -right-20 w-44 h-44 bg-red-500/10 rounded-full blur-2xl group-hover:bg-red-500/20 transition-all duration-500 pointer-events-none"></div>
+                    <div class="w-12 h-12 bg-red-950/60 text-red-400 border border-red-800/40 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-red-600 group-hover:text-white group-hover:shadow-[0_0_15px_rgba(239,68,68,0.5)] transition-all duration-300">
                         <i data-feather="box"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-slate-900 mb-3">YouTube Downloader</h3>
-                    <p class="text-slate-500 text-sm leading-relaxed mb-8 flex-grow">YouTube Downloader is a lightweight, high-speed Windows tool to search, preview, and download videos and audio from YouTube in up to 4K resolution and 320 kbps MP3/AAC.</p>
-                    <a href="https://pub-eb6a98518234454f807d902ff0e36ff6.r2.dev/Free%20Tools%20For%20Windows%20PC/YouTube%20Downloader/YouTubeDownloader_Setup.exe" target="_blank" class="flex items-center justify-center gap-2 w-full py-3 bg-slate-50 hover:bg-blue-600 text-slate-700 hover:text-white rounded-xl font-semibold transition-colors mt-auto">
+                    <h3 class="text-xl font-bold text-white mb-3">YouTube Downloader</h3>
+                    <p class="text-zinc-400 text-sm leading-relaxed mb-8 flex-grow">YouTube Downloader is a lightweight, high-speed Windows tool to search, preview, and download videos and audio from YouTube in up to 4K resolution and 320 kbps MP3/AAC.</p>
+                    <a href="https://pub-eb6a98518234454f807d902ff0e36ff6.r2.dev/Free%20Tools%20For%20Windows%20PC/YouTube%20Downloader/YouTubeDownloader_Setup.exe" target="_blank" class="flex items-center justify-center gap-2 w-full py-3 bg-zinc-900/90 hover:bg-red-600 text-zinc-300 hover:text-white border border-zinc-800 hover:border-red-500/50 rounded-xl font-semibold transition-all duration-300 shadow-md hover:shadow-[0_0_20px_rgba(239,68,68,0.4)] mt-auto relative z-10">
                         <i data-feather="download" class="w-4 h-4"></i> Download
                     </a>
                 </div>
                 
-                <div class="bg-white rounded-3xl p-8 border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col group h-full">
-                    <div class="w-12 h-12 bg-purple-50 text-purple-600 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                <!-- Filexa Card -->
+                <div class="bg-[#121215] rounded-3xl p-8 border border-zinc-800/80 shadow-[0_4px_20px_rgba(0,0,0,0.5)] card-glow hover:-translate-y-1.5 hover:shadow-[0_0_35px_rgba(168,85,247,0.25)] hover:border-purple-500/40 flex flex-col group h-full relative overflow-hidden backdrop-blur-sm">
+                    <div class="absolute -top-20 -right-20 w-44 h-44 bg-purple-500/10 rounded-full blur-2xl group-hover:bg-purple-500/20 transition-all duration-500 pointer-events-none"></div>
+                    <div class="w-12 h-12 bg-purple-950/60 text-purple-400 border border-purple-800/40 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-purple-600 group-hover:text-white group-hover:shadow-[0_0_15px_rgba(168,85,247,0.5)] transition-all duration-300">
                         <i data-feather="folder"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-slate-900 mb-3">Filexa</h3>
-                    <p class="text-slate-500 text-sm leading-relaxed mb-8 flex-grow">A smart file management tool that lets you flatten folder structures, organize files into categories, and detect duplicates.</p>
-                    <a href="https://pub-eb6a98518234454f807d902ff0e36ff6.r2.dev/Free%20Tools%20For%20Windows%20PC/Filexa/Filexa.exe" target="_blank" class="flex items-center justify-center gap-2 w-full py-3 bg-slate-50 hover:bg-blue-600 text-slate-700 hover:text-white rounded-xl font-semibold transition-colors mt-auto">
+                    <h3 class="text-xl font-bold text-white mb-3">Filexa</h3>
+                    <p class="text-zinc-400 text-sm leading-relaxed mb-8 flex-grow">A smart file management tool that lets you flatten folder structures, organize files into categories, and detect duplicates.</p>
+                    <a href="https://pub-eb6a98518234454f807d902ff0e36ff6.r2.dev/Free%20Tools%20For%20Windows%20PC/Filexa/Filexa.exe" target="_blank" class="flex items-center justify-center gap-2 w-full py-3 bg-zinc-900/90 hover:bg-purple-600 text-zinc-300 hover:text-white border border-zinc-800 hover:border-purple-500/50 rounded-xl font-semibold transition-all duration-300 shadow-md hover:shadow-[0_0_20px_rgba(168,85,247,0.4)] mt-auto relative z-10">
                         <i data-feather="download" class="w-4 h-4"></i> Download
                     </a>
                 </div>
-                <div class="bg-white rounded-3xl p-8 border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col group h-full">
-                    <div class="w-12 h-12 bg-emerald-50 text-emerald-600 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+
+                <!-- Timbar Card -->
+                <div class="bg-[#121215] rounded-3xl p-8 border border-zinc-800/80 shadow-[0_4px_20px_rgba(0,0,0,0.5)] card-glow hover:-translate-y-1.5 hover:shadow-[0_0_35px_rgba(16,185,129,0.25)] hover:border-emerald-500/40 flex flex-col group h-full relative overflow-hidden backdrop-blur-sm">
+                    <div class="absolute -top-20 -right-20 w-44 h-44 bg-emerald-500/10 rounded-full blur-2xl group-hover:bg-emerald-500/20 transition-all duration-500 pointer-events-none"></div>
+                    <div class="w-12 h-12 bg-emerald-950/60 text-emerald-400 border border-emerald-800/40 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-emerald-600 group-hover:text-white group-hover:shadow-[0_0_15px_rgba(16,185,129,0.5)] transition-all duration-300">
                         <i data-feather="clock"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-slate-900 mb-3">Timbar</h3>
-                    <p class="text-slate-500 text-sm leading-relaxed mb-8 flex-grow">A versatile tool for creating custom timers and progress bars with full color control. Export as MOV files with transparent backgrounds.</p>
-                    <a href="https://pub-eb6a98518234454f807d902ff0e36ff6.r2.dev/Free%20Tools%20For%20Windows%20PC/Timbar/Timbar.exe" target="_blank" class="flex items-center justify-center gap-2 w-full py-3 bg-slate-50 hover:bg-blue-600 text-slate-700 hover:text-white rounded-xl font-semibold transition-colors mt-auto">
+                    <h3 class="text-xl font-bold text-white mb-3">Timbar</h3>
+                    <p class="text-zinc-400 text-sm leading-relaxed mb-8 flex-grow">A versatile tool for creating custom timers and progress bars with full color control. Export as MOV files with transparent backgrounds.</p>
+                    <a href="https://pub-eb6a98518234454f807d902ff0e36ff6.r2.dev/Free%20Tools%20For%20Windows%20PC/Timbar/Timbar.exe" target="_blank" class="flex items-center justify-center gap-2 w-full py-3 bg-zinc-900/90 hover:bg-emerald-600 text-zinc-300 hover:text-white border border-zinc-800 hover:border-emerald-500/50 rounded-xl font-semibold transition-all duration-300 shadow-md hover:shadow-[0_0_20px_rgba(16,185,129,0.4)] mt-auto relative z-10">
                         <i data-feather="download" class="w-4 h-4"></i> Download
                     </a>
                 </div>
-                <div class="bg-white rounded-3xl p-8 border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col group h-full">
-                    <div class="w-12 h-12 bg-amber-50 text-amber-600 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+
+                <!-- MCQ Generator Card -->
+                <div class="bg-[#121215] rounded-3xl p-8 border border-zinc-800/80 shadow-[0_4px_20px_rgba(0,0,0,0.5)] card-glow hover:-translate-y-1.5 hover:shadow-[0_0_35px_rgba(245,158,11,0.25)] hover:border-amber-500/40 flex flex-col group h-full relative overflow-hidden backdrop-blur-sm">
+                    <div class="absolute -top-20 -right-20 w-44 h-44 bg-amber-500/10 rounded-full blur-2xl group-hover:bg-amber-500/20 transition-all duration-500 pointer-events-none"></div>
+                    <div class="w-12 h-12 bg-amber-950/60 text-amber-400 border border-amber-800/40 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-amber-600 group-hover:text-white group-hover:shadow-[0_0_15px_rgba(245,158,11,0.5)] transition-all duration-300">
                         <i data-feather="file-text"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-slate-900 mb-3">MCQ Generator</h3>
-                    <p class="text-slate-500 text-sm leading-relaxed mb-8 flex-grow">Generate MCQ question papers from structured input data. Customizable options like question count and answer sheet inclusion.</p>
-                    <a href="https://pub-eb6a98518234454f807d902ff0e36ff6.r2.dev/Free%20Tools%20For%20Windows%20PC/MCQ%20Generator/MCQ%20Generator.exe" target="_blank" class="flex items-center justify-center gap-2 w-full py-3 bg-slate-50 hover:bg-blue-600 text-slate-700 hover:text-white rounded-xl font-semibold transition-colors mt-auto">
+                    <h3 class="text-xl font-bold text-white mb-3">MCQ Generator</h3>
+                    <p class="text-zinc-400 text-sm leading-relaxed mb-8 flex-grow">Generate MCQ question papers from structured input data. Customizable options like question count and answer sheet inclusion.</p>
+                    <a href="https://pub-eb6a98518234454f807d902ff0e36ff6.r2.dev/Free%20Tools%20For%20Windows%20PC/MCQ%20Generator/MCQ%20Generator.exe" target="_blank" class="flex items-center justify-center gap-2 w-full py-3 bg-zinc-900/90 hover:bg-amber-600 text-zinc-300 hover:text-white border border-zinc-800 hover:border-amber-500/50 rounded-xl font-semibold transition-all duration-300 shadow-md hover:shadow-[0_0_20px_rgba(245,158,11,0.4)] mt-auto relative z-10">
                         <i data-feather="download" class="w-4 h-4"></i> Download
                     </a>
                 </div>
-                <div class="bg-white rounded-3xl p-8 border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col group h-full">
-                    <div class="w-12 h-12 bg-rose-50 text-rose-600 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+
+                <!-- MyTypingTutor Card -->
+                <div class="bg-[#121215] rounded-3xl p-8 border border-zinc-800/80 shadow-[0_4px_20px_rgba(0,0,0,0.5)] card-glow hover:-translate-y-1.5 hover:shadow-[0_0_35px_rgba(244,63,94,0.25)] hover:border-rose-500/40 flex flex-col group h-full relative overflow-hidden backdrop-blur-sm">
+                    <div class="absolute -top-20 -right-20 w-44 h-44 bg-rose-500/10 rounded-full blur-2xl group-hover:bg-rose-500/20 transition-all duration-500 pointer-events-none"></div>
+                    <div class="w-12 h-12 bg-rose-950/60 text-rose-400 border border-rose-800/40 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-rose-600 group-hover:text-white group-hover:shadow-[0_0_15px_rgba(244,63,94,0.5)] transition-all duration-300">
                         <i data-feather="edit-3"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-slate-900 mb-3">MyTypingTutor</h3>
-                    <p class="text-slate-500 text-sm leading-relaxed mb-8 flex-grow">A flexible typing tutor. Use your own content, save it, track your speed, accuracy, and performance with detailed results.</p>
-                    <a href="https://pub-eb6a98518234454f807d902ff0e36ff6.r2.dev/Free%20Tools%20For%20Windows%20PC/My%20Typing%20Tutor/MyTypingTutor.exe" target="_blank" class="flex items-center justify-center gap-2 w-full py-3 bg-slate-50 hover:bg-blue-600 text-slate-700 hover:text-white rounded-xl font-semibold transition-colors mt-auto">
+                    <h3 class="text-xl font-bold text-white mb-3">MyTypingTutor</h3>
+                    <p class="text-zinc-400 text-sm leading-relaxed mb-8 flex-grow">A flexible typing tutor. Use your own content, save it, track your speed, accuracy, and performance with detailed results.</p>
+                    <a href="https://pub-eb6a98518234454f807d902ff0e36ff6.r2.dev/Free%20Tools%20For%20Windows%20PC/My%20Typing%20Tutor/MyTypingTutor.exe" target="_blank" class="flex items-center justify-center gap-2 w-full py-3 bg-zinc-900/90 hover:bg-rose-600 text-zinc-300 hover:text-white border border-zinc-800 hover:border-rose-500/50 rounded-xl font-semibold transition-all duration-300 shadow-md hover:shadow-[0_0_20px_rgba(244,63,94,0.4)] mt-auto relative z-10">
                         <i data-feather="download" class="w-4 h-4"></i> Download
                     </a>
                 </div>
@@ -116,23 +146,28 @@
         <!-- Scripts Section -->
         <div id="section-scripts" class="w-full hidden">
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 px-6 md:px-12 pb-12 w-full max-w-7xl mx-auto">
-                <div class="bg-white rounded-3xl p-8 border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col group h-full">
-                    <div class="w-12 h-12 bg-slate-100 text-slate-700 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                <!-- Manage VEGAS Preferences Card -->
+                <div class="bg-[#121215] rounded-3xl p-8 border border-zinc-800/80 shadow-[0_4px_20px_rgba(0,0,0,0.5)] card-glow hover:-translate-y-1.5 hover:shadow-[0_0_35px_rgba(99,102,241,0.25)] hover:border-indigo-500/40 flex flex-col group h-full relative overflow-hidden backdrop-blur-sm">
+                    <div class="absolute -top-20 -right-20 w-44 h-44 bg-indigo-500/10 rounded-full blur-2xl group-hover:bg-indigo-500/20 transition-all duration-500 pointer-events-none"></div>
+                    <div class="w-12 h-12 bg-indigo-950/60 text-indigo-400 border border-indigo-800/40 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-indigo-600 group-hover:text-white group-hover:shadow-[0_0_15px_rgba(99,102,241,0.5)] transition-all duration-300">
                         <i data-feather="settings"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-slate-900 mb-3">Manage VEGAS Preferences</h3>
-                    <p class="text-slate-500 text-sm leading-relaxed mb-8 flex-grow">A smart utility that lets you back up, store, and restore your VEGAS Pro preferences effortlessly through an import/export system.</p>
-                    <a href="https://pub-eb6a98518234454f807d902ff0e36ff6.r2.dev/VEGAS%20Scripts/ManagePreferences.zip" target="_blank" class="flex items-center justify-center gap-2 w-full py-3 bg-slate-50 hover:bg-blue-600 text-slate-700 hover:text-white rounded-xl font-semibold transition-colors mt-auto">
+                    <h3 class="text-xl font-bold text-white mb-3">Manage VEGAS Preferences</h3>
+                    <p class="text-zinc-400 text-sm leading-relaxed mb-8 flex-grow">A smart utility that lets you back up, store, and restore your VEGAS Pro preferences effortlessly through an import/export system.</p>
+                    <a href="https://pub-eb6a98518234454f807d902ff0e36ff6.r2.dev/VEGAS%20Scripts/ManagePreferences.zip" target="_blank" class="flex items-center justify-center gap-2 w-full py-3 bg-zinc-900/90 hover:bg-indigo-600 text-zinc-300 hover:text-white border border-zinc-800 hover:border-indigo-500/50 rounded-xl font-semibold transition-all duration-300 shadow-md hover:shadow-[0_0_20px_rgba(99,102,241,0.4)] mt-auto relative z-10">
                         <i data-feather="download" class="w-4 h-4"></i> Download
                     </a>
                 </div>
-                <div class="bg-white rounded-3xl p-8 border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col group h-full">
-                    <div class="w-12 h-12 bg-slate-100 text-slate-700 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+
+                <!-- ZParallax Effect Card -->
+                <div class="bg-[#121215] rounded-3xl p-8 border border-zinc-800/80 shadow-[0_4px_20px_rgba(0,0,0,0.5)] card-glow hover:-translate-y-1.5 hover:shadow-[0_0_35px_rgba(6,182,212,0.25)] hover:border-cyan-500/40 flex flex-col group h-full relative overflow-hidden backdrop-blur-sm">
+                    <div class="absolute -top-20 -right-20 w-44 h-44 bg-cyan-500/10 rounded-full blur-2xl group-hover:bg-cyan-500/20 transition-all duration-500 pointer-events-none"></div>
+                    <div class="w-12 h-12 bg-cyan-950/60 text-cyan-400 border border-cyan-800/40 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-cyan-600 group-hover:text-white group-hover:shadow-[0_0_15px_rgba(6,182,212,0.5)] transition-all duration-300">
                         <i data-feather="layers"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-slate-900 mb-3">ZParallax Effect</h3>
-                    <p class="text-slate-500 text-sm leading-relaxed mb-8 flex-grow">A powerful tool for creating parallax effects using 3D Source Alpha. Build custom presets with ease.</p>
-                    <a href="https://pub-eb6a98518234454f807d902ff0e36ff6.r2.dev/VEGAS%20Scripts/ZParallaxEffect.dll.zip" target="_blank" class="flex items-center justify-center gap-2 w-full py-3 bg-slate-50 hover:bg-blue-600 text-slate-700 hover:text-white rounded-xl font-semibold transition-colors mt-auto">
+                    <h3 class="text-xl font-bold text-white mb-3">ZParallax Effect</h3>
+                    <p class="text-zinc-400 text-sm leading-relaxed mb-8 flex-grow">A powerful tool for creating parallax effects using 3D Source Alpha. Build custom presets with ease.</p>
+                    <a href="https://pub-eb6a98518234454f807d902ff0e36ff6.r2.dev/VEGAS%20Scripts/ZParallaxEffect.dll.zip" target="_blank" class="flex items-center justify-center gap-2 w-full py-3 bg-zinc-900/90 hover:bg-cyan-600 text-zinc-300 hover:text-white border border-zinc-800 hover:border-cyan-500/50 rounded-xl font-semibold transition-all duration-300 shadow-md hover:shadow-[0_0_20px_rgba(6,182,212,0.4)] mt-auto relative z-10">
                         <i data-feather="download" class="w-4 h-4"></i> Download
                     </a>
                 </div>
@@ -142,33 +177,41 @@
         <!-- VEGAS Extensions Section -->
         <div id="section-vegas-application-extensions" class="w-full hidden">
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 px-6 md:px-12 pb-12 w-full max-w-7xl mx-auto">
-                <div class="bg-white rounded-3xl p-8 border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col group h-full">
-                    <div class="w-12 h-12 bg-slate-100 text-slate-700 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                <!-- VEGAS Minitools Card -->
+                <div class="bg-[#121215] rounded-3xl p-8 border border-zinc-800/80 shadow-[0_4px_20px_rgba(0,0,0,0.5)] card-glow hover:-translate-y-1.5 hover:shadow-[0_0_35px_rgba(139,92,246,0.25)] hover:border-violet-500/40 flex flex-col group h-full relative overflow-hidden backdrop-blur-sm">
+                    <div class="absolute -top-20 -right-20 w-44 h-44 bg-violet-500/10 rounded-full blur-2xl group-hover:bg-violet-500/20 transition-all duration-500 pointer-events-none"></div>
+                    <div class="w-12 h-12 bg-violet-950/60 text-violet-400 border border-violet-800/40 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-violet-600 group-hover:text-white group-hover:shadow-[0_0_15px_rgba(139,92,246,0.5)] transition-all duration-300">
                         <i data-feather="tool"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-slate-900 mb-3">VEGAS Minitools</h3>
-                    <p class="text-slate-500 text-sm leading-relaxed mb-8 flex-grow">A powerful extension loaded with essential tools to supercharge your workflow inside VEGAS Pro.</p>
-                    <a href="https://pub-eb6a98518234454f807d902ff0e36ff6.r2.dev/VEGAS%20Application%20Extensions/VEGASMinitools.zip" target="_blank" class="flex items-center justify-center gap-2 w-full py-3 bg-slate-50 hover:bg-blue-600 text-slate-700 hover:text-white rounded-xl font-semibold transition-colors mt-auto">
+                    <h3 class="text-xl font-bold text-white mb-3">VEGAS Minitools</h3>
+                    <p class="text-zinc-400 text-sm leading-relaxed mb-8 flex-grow">A powerful extension loaded with essential tools to supercharge your workflow inside VEGAS Pro.</p>
+                    <a href="https://pub-eb6a98518234454f807d902ff0e36ff6.r2.dev/VEGAS%20Application%20Extensions/VEGASMinitools.zip" target="_blank" class="flex items-center justify-center gap-2 w-full py-3 bg-zinc-900/90 hover:bg-violet-600 text-zinc-300 hover:text-white border border-zinc-800 hover:border-violet-500/50 rounded-xl font-semibold transition-all duration-300 shadow-md hover:shadow-[0_0_20px_rgba(139,92,246,0.4)] mt-auto relative z-10">
                         <i data-feather="download" class="w-4 h-4"></i> Download
                     </a>
                 </div>
-                <div class="bg-white rounded-3xl p-8 border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col group h-full">
-                    <div class="w-12 h-12 bg-slate-100 text-slate-700 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+
+                <!-- VEGAS Quick Render Card -->
+                <div class="bg-[#121215] rounded-3xl p-8 border border-zinc-800/80 shadow-[0_4px_20px_rgba(0,0,0,0.5)] card-glow hover:-translate-y-1.5 hover:shadow-[0_0_35px_rgba(14,165,233,0.25)] hover:border-sky-500/40 flex flex-col group h-full relative overflow-hidden backdrop-blur-sm">
+                    <div class="absolute -top-20 -right-20 w-44 h-44 bg-sky-500/10 rounded-full blur-2xl group-hover:bg-sky-500/20 transition-all duration-500 pointer-events-none"></div>
+                    <div class="w-12 h-12 bg-sky-950/60 text-sky-400 border border-sky-800/40 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-sky-600 group-hover:text-white group-hover:shadow-[0_0_15px_rgba(14,165,233,0.5)] transition-all duration-300">
                         <i data-feather="tool"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-slate-900 mb-3">VEGAS Quick Render</h3>
-                    <p class="text-slate-500 text-sm leading-relaxed mb-8 flex-grow">A powerful extension built specifically to handle all rendering and encoding tasks in VEGAS Pro with ease.</p>
-                    <a href="https://pub-eb6a98518234454f807d902ff0e36ff6.r2.dev/VEGAS%20Application%20Extensions/VEGAS%20Quick%20Render.zip" target="_blank" class="flex items-center justify-center gap-2 w-full py-3 bg-slate-50 hover:bg-blue-600 text-slate-700 hover:text-white rounded-xl font-semibold transition-colors mt-auto">
+                    <h3 class="text-xl font-bold text-white mb-3">VEGAS Quick Render</h3>
+                    <p class="text-zinc-400 text-sm leading-relaxed mb-8 flex-grow">A powerful extension built specifically to handle all rendering and encoding tasks in VEGAS Pro with ease.</p>
+                    <a href="https://pub-eb6a98518234454f807d902ff0e36ff6.r2.dev/VEGAS%20Application%20Extensions/VEGAS%20Quick%20Render.zip" target="_blank" class="flex items-center justify-center gap-2 w-full py-3 bg-zinc-900/90 hover:bg-sky-600 text-zinc-300 hover:text-white border border-zinc-800 hover:border-sky-500/50 rounded-xl font-semibold transition-all duration-300 shadow-md hover:shadow-[0_0_20px_rgba(14,165,233,0.4)] mt-auto relative z-10">
                         <i data-feather="download" class="w-4 h-4"></i> Download
                     </a>
                 </div>
-                <div class="bg-white rounded-3xl p-8 border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col group h-full">
-                    <div class="w-12 h-12 bg-slate-100 text-slate-700 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+
+                <!-- Web In VEGAS Card -->
+                <div class="bg-[#121215] rounded-3xl p-8 border border-zinc-800/80 shadow-[0_4px_20px_rgba(0,0,0,0.5)] card-glow hover:-translate-y-1.5 hover:shadow-[0_0_35px_rgba(20,184,166,0.25)] hover:border-teal-500/40 flex flex-col group h-full relative overflow-hidden backdrop-blur-sm">
+                    <div class="absolute -top-20 -right-20 w-44 h-44 bg-teal-500/10 rounded-full blur-2xl group-hover:bg-teal-500/20 transition-all duration-500 pointer-events-none"></div>
+                    <div class="w-12 h-12 bg-teal-950/60 text-teal-400 border border-teal-800/40 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-teal-600 group-hover:text-white group-hover:shadow-[0_0_15px_rgba(20,184,166,0.5)] transition-all duration-300">
                         <i data-feather="globe"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-slate-900 mb-3">Web In VEGAS</h3>
-                    <p class="text-slate-500 text-sm leading-relaxed mb-8 flex-grow">Browse your favorite websites directly inside VEGAS Pro without ever leaving your editing workspace.</p>
-                    <a href="https://pub-eb6a98518234454f807d902ff0e36ff6.r2.dev/VEGAS%20Application%20Extensions/WebInVegas.zip" target="_blank" class="flex items-center justify-center gap-2 w-full py-3 bg-slate-50 hover:bg-blue-600 text-slate-700 hover:text-white rounded-xl font-semibold transition-colors mt-auto">
+                    <h3 class="text-xl font-bold text-white mb-3">Web In VEGAS</h3>
+                    <p class="text-zinc-400 text-sm leading-relaxed mb-8 flex-grow">Browse your favorite websites directly inside VEGAS Pro without ever leaving your editing workspace.</p>
+                    <a href="https://pub-eb6a98518234454f807d902ff0e36ff6.r2.dev/VEGAS%20Application%20Extensions/WebInVegas.zip" target="_blank" class="flex items-center justify-center gap-2 w-full py-3 bg-zinc-900/90 hover:bg-teal-600 text-zinc-300 hover:text-white border border-zinc-800 hover:border-teal-500/50 rounded-xl font-semibold transition-all duration-300 shadow-md hover:shadow-[0_0_20px_rgba(20,184,166,0.4)] mt-auto relative z-10">
                         <i data-feather="download" class="w-4 h-4"></i> Download
                     </a>
                 </div>
@@ -178,16 +221,18 @@
         <!-- Android Apps Section -->
         <div id="section-free-android-apps" class="w-full hidden">
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 px-6 md:px-12 pb-12 w-full max-w-7xl mx-auto">
-                <div class="bg-white rounded-3xl p-8 border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col group h-full">
-                    <div class="w-12 h-12 bg-cyan-50 text-cyan-600 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                <!-- AquaEject Pro Card -->
+                <div class="bg-[#121215] rounded-3xl p-8 border border-zinc-800/80 shadow-[0_4px_20px_rgba(0,0,0,0.5)] card-glow hover:-translate-y-1.5 hover:shadow-[0_0_35px_rgba(6,182,212,0.25)] hover:border-cyan-500/40 flex flex-col group h-full relative overflow-hidden backdrop-blur-sm">
+                    <div class="absolute -top-20 -right-20 w-44 h-44 bg-cyan-500/10 rounded-full blur-2xl group-hover:bg-cyan-500/20 transition-all duration-500 pointer-events-none"></div>
+                    <div class="w-12 h-12 bg-cyan-950/60 text-cyan-400 border border-cyan-800/40 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-cyan-600 group-hover:text-white group-hover:shadow-[0_0_15px_rgba(6,182,212,0.5)] transition-all duration-300">
                         <i data-feather="smartphone"></i>
                     </div>
                     <div class="flex items-center justify-between mb-3">
-                        <h3 class="text-xl font-bold text-slate-900">AquaEject Pro</h3>
-                        <span class="px-2.5 py-0.5 text-xs font-semibold bg-cyan-100 text-cyan-800 rounded-full">v5.0</span>
+                        <h3 class="text-xl font-bold text-white">AquaEject Pro</h3>
+                        <span class="px-2.5 py-0.5 text-xs font-semibold bg-cyan-950/80 text-cyan-300 border border-cyan-800/60 rounded-full shadow-[0_0_10px_rgba(6,182,212,0.3)]">v5.0</span>
                     </div>
-                    <p class="text-slate-500 text-sm leading-relaxed mb-8 flex-grow">Powerful speaker cleaner and water ejection tool for Android. Clear water &amp; dust from phone speakers with multi-frequency sonic sound waves, sweep tones, custom wave generator &amp; stereo speaker balance test.</p>
-                    <a href="https://pub-eb6a98518234454f807d902ff0e36ff6.r2.dev/Free%20Android%20Apps/AquaEject%20Pro/AquaEjectPro.apk" target="_blank" class="flex items-center justify-center gap-2 w-full py-3 bg-slate-50 hover:bg-blue-600 text-slate-700 hover:text-white rounded-xl font-semibold transition-colors mt-auto">
+                    <p class="text-zinc-400 text-sm leading-relaxed mb-8 flex-grow">Powerful speaker cleaner and water ejection tool for Android. Clear water &amp; dust from phone speakers with multi-frequency sonic sound waves, sweep tones, custom wave generator &amp; stereo speaker balance test.</p>
+                    <a href="https://pub-eb6a98518234454f807d902ff0e36ff6.r2.dev/Free%20Android%20Apps/AquaEject%20Pro/AquaEjectPro.apk" target="_blank" class="flex items-center justify-center gap-2 w-full py-3 bg-zinc-900/90 hover:bg-cyan-600 text-zinc-300 hover:text-white border border-zinc-800 hover:border-cyan-500/50 rounded-xl font-semibold transition-all duration-300 shadow-md hover:shadow-[0_0_20px_rgba(6,182,212,0.4)] mt-auto relative z-10">
                         <i data-feather="download" class="w-4 h-4"></i> Download APK
                     </a>
                 </div>
@@ -197,36 +242,40 @@
     </main>
 
     <!-- Feedback Section -->
-    <section class="max-w-2xl mx-auto px-6 w-full mb-12">
-        <div id="feedback-software" class="bg-gradient-to-br from-slate-900 to-slate-800 rounded-3xl p-8 md:p-10 text-center shadow-2xl shadow-slate-900/20">
-            <h3 class="text-2xl font-bold text-white mb-3">Need Help or Have Feedback?</h3>
-            <p class="text-slate-300 mb-8 text-sm md:text-base">Have suggestions? Feel free to reach out directly via email.</p>
-            <a href="mailto:iamemby@gmail.com" class="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-blue-500 hover:bg-blue-400 text-white rounded-full font-semibold transition-colors shadow-lg shadow-blue-500/30"><i data-feather="mail" class="w-5 h-5"></i> Email Us (iamemby@gmail.com)</a>
+    <section class="max-w-2xl mx-auto px-6 w-full mb-12 relative z-10">
+        <div id="feedback-software" class="bg-[#121215] border border-zinc-800/80 rounded-3xl p-8 md:p-10 text-center shadow-[0_0_40px_rgba(0,0,0,0.6)] relative overflow-hidden backdrop-blur-sm">
+            <div class="absolute inset-0 bg-gradient-to-r from-blue-600/10 via-indigo-600/10 to-purple-600/10 pointer-events-none"></div>
+            <h3 class="text-2xl font-bold text-white mb-3 relative z-10">Need Help or Have Feedback?</h3>
+            <p class="text-zinc-400 mb-8 text-sm md:text-base relative z-10">Have suggestions? Feel free to reach out directly via email.</p>
+            <a href="mailto:iamemby@gmail.com" class="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white rounded-full font-semibold transition-all duration-300 shadow-[0_0_20px_rgba(59,130,246,0.4)] hover:shadow-[0_0_30px_rgba(59,130,246,0.6)] hover:scale-[1.02] relative z-10"><i data-feather="mail" class="w-5 h-5"></i> Email Us (iamemby@gmail.com)</a>
         </div>
-        <div id="feedback-scripts" class="hidden bg-gradient-to-br from-slate-900 to-slate-800 rounded-3xl p-8 md:p-10 text-center shadow-2xl shadow-slate-900/20">
-            <h3 class="text-2xl font-bold text-white mb-3">Feedback for VEGAS Scripts?</h3>
-            <p class="text-slate-300 mb-8 text-sm md:text-base">Join the discussion on Boris FX Forum and let me know your thoughts on the scripts!</p>
-            <a href="https://forum.borisfx.com/t/scripts-by-getopensofts-mohit-bhagat-iemby-love-from-india/21318" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-blue-500 hover:bg-blue-400 text-white rounded-full font-semibold transition-colors shadow-lg shadow-blue-500/30">
+        <div id="feedback-scripts" class="hidden bg-[#121215] border border-zinc-800/80 rounded-3xl p-8 md:p-10 text-center shadow-[0_0_40px_rgba(0,0,0,0.6)] relative overflow-hidden backdrop-blur-sm">
+            <div class="absolute inset-0 bg-gradient-to-r from-indigo-600/10 via-purple-600/10 to-pink-600/10 pointer-events-none"></div>
+            <h3 class="text-2xl font-bold text-white mb-3 relative z-10">Feedback for VEGAS Scripts?</h3>
+            <p class="text-zinc-400 mb-8 text-sm md:text-base relative z-10">Join the discussion on Boris FX Forum and let me know your thoughts on the scripts!</p>
+            <a href="https://forum.borisfx.com/t/scripts-by-getopensofts-mohit-bhagat-iemby-love-from-india/21318" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white rounded-full font-semibold transition-all duration-300 shadow-[0_0_20px_rgba(99,102,241,0.4)] hover:shadow-[0_0_30px_rgba(99,102,241,0.6)] hover:scale-[1.02] relative z-10">
                 <i data-feather="message-circle" class="w-5 h-5"></i> Boris FX Forum
             </a>
         </div>
-        <div id="feedback-vegas-application-extensions" class="hidden bg-gradient-to-br from-slate-900 to-slate-800 rounded-3xl p-8 md:p-10 text-center shadow-2xl shadow-slate-900/20">
-            <h3 class="text-2xl font-bold text-white mb-3">Feedback for VEGAS Application Extensions?</h3>
-            <p class="text-slate-300 mb-8 text-sm md:text-base">Join the discussion on Boris FX Forum and let me know your thoughts on the extensions!</p>
-            <a href="https://forum.borisfx.com/t/scripts-by-getopensofts-mohit-bhagat-iemby-love-from-india/21318" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-blue-500 hover:bg-blue-400 text-white rounded-full font-semibold transition-colors shadow-lg shadow-blue-500/30">
+        <div id="feedback-vegas-application-extensions" class="hidden bg-[#121215] border border-zinc-800/80 rounded-3xl p-8 md:p-10 text-center shadow-[0_0_40px_rgba(0,0,0,0.6)] relative overflow-hidden backdrop-blur-sm">
+            <div class="absolute inset-0 bg-gradient-to-r from-violet-600/10 via-sky-600/10 to-teal-600/10 pointer-events-none"></div>
+            <h3 class="text-2xl font-bold text-white mb-3 relative z-10">Feedback for VEGAS Application Extensions?</h3>
+            <p class="text-zinc-400 mb-8 text-sm md:text-base relative z-10">Join the discussion on Boris FX Forum and let me know your thoughts on the extensions!</p>
+            <a href="https://forum.borisfx.com/t/scripts-by-getopensofts-mohit-bhagat-iemby-love-from-india/21318" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-gradient-to-r from-violet-600 to-sky-600 hover:from-violet-500 hover:to-sky-500 text-white rounded-full font-semibold transition-all duration-300 shadow-[0_0_20px_rgba(139,92,246,0.4)] hover:shadow-[0_0_30px_rgba(139,92,246,0.6)] hover:scale-[1.02] relative z-10">
                 <i data-feather="message-circle" class="w-5 h-5"></i> Boris FX Forum
             </a>
         </div>
-        <div id="feedback-free-android-apps" class="hidden bg-gradient-to-br from-slate-900 to-slate-800 rounded-3xl p-8 md:p-10 text-center shadow-2xl shadow-slate-900/20">
-            <h3 class="text-2xl font-bold text-white mb-3">Feedback for Free Android Apps?</h3>
-            <p class="text-slate-300 mb-8 text-sm md:text-base">Have suggestions? Feel free to reach out directly via email.</p>
-            <a href="mailto:iamemby@gmail.com" class="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-blue-500 hover:bg-blue-400 text-white rounded-full font-semibold transition-colors shadow-lg shadow-blue-500/30"><i data-feather="mail" class="w-5 h-5"></i> Email Us (iamemby@gmail.com)</a>
+        <div id="feedback-free-android-apps" class="hidden bg-[#121215] border border-zinc-800/80 rounded-3xl p-8 md:p-10 text-center shadow-[0_0_40px_rgba(0,0,0,0.6)] relative overflow-hidden backdrop-blur-sm">
+            <div class="absolute inset-0 bg-gradient-to-r from-cyan-600/10 via-blue-600/10 to-indigo-600/10 pointer-events-none"></div>
+            <h3 class="text-2xl font-bold text-white mb-3 relative z-10">Feedback for Free Android Apps?</h3>
+            <p class="text-zinc-400 mb-8 text-sm md:text-base relative z-10">Have suggestions? Feel free to reach out directly via email.</p>
+            <a href="mailto:iamemby@gmail.com" class="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 text-white rounded-full font-semibold transition-all duration-300 shadow-[0_0_20px_rgba(6,182,212,0.4)] hover:shadow-[0_0_30px_rgba(6,182,212,0.6)] hover:scale-[1.02] relative z-10"><i data-feather="mail" class="w-5 h-5"></i> Email Us (iamemby@gmail.com)</a>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="mt-auto py-8 text-center border-t border-slate-200">
-        <p class="text-slate-500 text-sm font-medium">&copy; GetOpenSofts | Mohit Bhagat | 2026 | All Rights Reserved.</p>
+    <footer class="mt-auto py-8 text-center border-t border-zinc-800/80 relative z-10 bg-[#09090b]">
+        <p class="text-zinc-500 text-sm font-medium">&copy; GetOpenSofts | Mohit Bhagat | 2026 | All Rights Reserved.</p>
     </footer>
 
     <script>
@@ -237,9 +286,9 @@
         function switchTab(tab) {
             document.querySelectorAll('button[id^="tab-"]').forEach(btn => {
                 if (btn.id === 'tab-' + tab) {
-                    btn.className = "px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 bg-slate-900 text-white shadow-lg shadow-slate-900/20";
+                    btn.className = "px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-[0_0_20px_rgba(59,130,246,0.4)] border border-blue-400/30";
                 } else {
-                    btn.className = "px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 bg-white text-slate-600 hover:bg-slate-100 border border-slate-200";
+                    btn.className = "px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 bg-zinc-900/80 text-zinc-400 hover:text-white hover:bg-zinc-800/90 border border-zinc-800/80 hover:border-zinc-700";
                 }
             });
 
